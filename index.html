@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Pokémons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #d62828;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todos os Pokémons</h1>
+  <ul id="pokemon-list"></ul>
+
+  <script>
+    async function carregarPokemons() {
+      try {
+        const resposta = await fetch("http://localhost:3000/pokemons");
+        const pokemons = await resposta.json();
+
+        const lista = document.getElementById("pokemon-list");
+        lista.innerHTML = "";
+
+        pokemons.forEach(pokemon => {
+          const li = document.createElement("li");
+          li.textContent = `#${pokemon.id} - ${pokemon.nome} (${pokemon.tipo})`;
+          lista.appendChild(li);
+        });
+      } catch (erro) {
+        console.error("Erro ao carregar os pokémons:", erro);
+      }
+    }
+
+    carregarPokemons();
+  </script>
+</body>
+</html>

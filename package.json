@@ -1,0 +1,27 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElifasPF/Pokedex-Pokemons.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElifasPF/Pokedex-Pokemons/issues"
+  },
+  "homepage": "https://github.com/ElifasPF/Pokedex-Pokemons#readme",
+  "description": "",
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "dotenv": "^16.5.0",
+    "fastify": "^5.3.3",
+    "mysql2": "^3.14.1"
+  }
+}

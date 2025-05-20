@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         } catch (error) {
             exibirErro();
         } finally {
-
+            ocultarLoading();
         }
     };
 
