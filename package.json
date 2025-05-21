@@ -1,9 +1,8 @@
 {
-  "name": "pokedex",
+  "name": "pokedex-pokemons",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,9 +18,8 @@
   "homepage": "https://github.com/ElifasPF/Pokedex-Pokemons#readme",
   "description": "",
   "dependencies": {
-    "@fastify/cors": "^11.0.1",
-    "dotenv": "^16.5.0",
     "fastify": "^5.3.3",
+    "fastify-cors": "^6.0.3",
     "mysql2": "^3.14.1"
   }
 }
