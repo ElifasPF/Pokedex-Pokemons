@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPesquisar = document.getElementById('btn-pesquisar');
     const btnListarTodos = document.getElementById('btn-listar-todos');
     const pokemonInfo = document.getElementById('pokemon-info');
-    const btnsNavegacao = document.getElementById('btns-navegacao');
     const pokemonImagem = document.getElementById('pokemon-imagem');
     const pokemonNome = document.getElementById('nome-pokemon');
     const pokemonDescricao = document.getElementById('pokemon-descricao');
@@ -18,11 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error('Erro ao buscar a lista');
             const pokemons = await response.json();
 
-            // Oculta seções que não interessam durante a listagem
             pokemonInfo.classList.add('hidden');
             mensagemErro.classList.add('hidden');
-            btnsNavegacao.classList.add('hidden');
-
             listaPokemonsContainer.innerHTML = '';
 
             if (pokemons.length === 0) {
@@ -50,12 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!response.ok) throw new Error('Pokémon não encontrado');
 
-            const pokemon = await response.json();
+            const data = await response.json();
+
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error('Pokémon não encontrado');
+            }
+
+            const pokemon = data[0]; // Corrigido: pega o primeiro da lista
             preencherPokemonInfo(pokemon);
             mensagemErro.classList.add('hidden');
             pokemonInfo.classList.remove('hidden');
-            btnsNavegacao.classList.remove('hidden');
-            listaPokemonsContainer.innerHTML = ''; // Limpa a lista ao mostrar um Pokémon individual
+            listaPokemonsContainer.innerHTML = '';
         } catch (error) {
             exibirErro();
         } finally {
@@ -64,17 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const preencherPokemonInfo = (pokemon) => {
-        pokemonImagem.src = 'images/pokebola.png'; // Mostra pokébola como imagem padrão
+        pokemonImagem.src = 'images/pokebola.png'; // Imagem padrão
         pokemonNome.textContent = `${pokemon.nome} (ID: ${pokemon.id})`;
         pokemonDescricao.textContent = `Tipo: ${pokemon.tipo} | Habitat: ${pokemon.habitat}`;
-        idAtualPokemon = parseInt(pokemon.id);
     };
 
     const exibirLoading = () => {
         mensagemLoading.classList.remove('hidden');
         pokemonInfo.classList.add('hidden');
         mensagemErro.classList.add('hidden');
-        btnsNavegacao.classList.add('hidden');
     };
 
     const ocultarLoading = () => {
@@ -87,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         pokemonDescricao.textContent = '';
         mensagemErro.classList.remove('hidden');
         pokemonInfo.classList.add('hidden');
-        btnsNavegacao.classList.add('hidden');
         listaPokemonsContainer.innerHTML = '';
     };
 
@@ -96,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     btnPesquisar.addEventListener('click', () => {
-        mensagemErro.classList.add('hidden'); // ADICIONE ESTA LINHA
+        mensagemErro.classList.add('hidden');
         const query = inputPesquisar.value.trim().toLowerCase();
         if (query) {
             fetchPokemon(query);
         }
-    });    
+    });
 
     inputPesquisar.addEventListener('input', atualizarBotaoPesquisar);
 
@@ -112,9 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnListarTodos.addEventListener('click', () => {
-        mensagemErro.classList.add('hidden'); // ADICIONE ESTA LINHA
-        listarTodosPokemons();
         mensagemErro.classList.add('hidden');
-    });    
-
+        listarTodosPokemons();
+    });
 });
