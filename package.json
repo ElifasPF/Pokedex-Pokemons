@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node Back-End/index.js",
+    "dev": "node Back-End/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,10 +17,14 @@
     "url": "https://github.com/ElifasPF/Pokedex-Pokemons/issues"
   },
   "homepage": "https://github.com/ElifasPF/Pokedex-Pokemons#readme",
-  "description": "",
   "dependencies": {
+    "@fastify/cors": "^11.0.1",
     "fastify": "^5.3.3",
     "fastify-cors": "^6.0.3",
     "mysql2": "^3.14.1"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "description": ""
 }

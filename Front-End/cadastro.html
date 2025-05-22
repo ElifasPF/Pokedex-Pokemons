@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pokémon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="shortcut icon" type="image/png" sizes="96x96" href="images/pokebola.png">
+</head>
+<body>
+    <div class="conteiner">
+        <h1>Cadastrar Pokémon</h1>
+        <form id="form-cadastro">
+            <label for="id">Id:</label>
+            <input type="number" id="id" name="id" required>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="tipo">Tipo:</label>
+            <input type="text" id="tipo" name="tipo" required>
+
+            <label for="habitat">Habitat:</label>
+            <input type="text" id="habitat" name="habitat" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p id="mensagem-cadastro"></p>
+
+        <button onclick="window.location.href='index.html'">Voltar à Pokedex</button>
+    </div>
+
+    <script src="cadastro.js"></script>
+</body>
+</html>
