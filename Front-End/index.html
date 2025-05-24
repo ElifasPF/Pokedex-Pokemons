@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br"></html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,14 @@
     <div class="conteiner">
         <div id="msg-inicial">
             <h1>Pokedex</h1>
-            <p>Digite o nome ou ID do Pokemon:</p>
+            <p>Digite o nome ou ID do Pokémon cadastrado:</p>
         </div>
         <div class="pesquisa">
-            <input type="text" id="input-pesquisar" placeholder="Nome ou ID do Pokemon">
-            <button id="btn-pesquisar">Buscar</button>
-        </div>
+            <input type="text" id="input-pesquisar" placeholder="Nome ou ID do Pokémon">
+            <button id="btn-pesquisar">Pesquisar</button>
+            <button id="btn-listar-todos">Listar Todos</button>
+            <button onclick="window.location.href='cadastro.html'">Cadastrar Novo</button>
+        </div>             
         <div id="pokedex-app">
             <div id="mensagem-loading" class="hidden">
                 <p>Carregando...</p>
@@ -28,13 +30,14 @@
                 <h2 id="nome-pokemon"></h2>
                 <p id="pokemon-descricao"></p>
             </div>
-            <div id="btns-navegacao" class="btns-navegacao hidden">
-                <button id="btn-anterior">Pokemon Anterior</button>
-                <button id="btn-proximo">Próximo Pokemon</button>
-            </div>
             <div id="mensagem-erro" class="hidden">
-                <p>404 NOT FOUND - Pokemon não encontrado!</p>
+                <p>404 NOT FOUND - Pokémon não encontrado!</p>
             </div>
+        </div>
+
+        <div id="lista-container">
+            <h2>Todos os Pokémons Cadastrados:</h2>
+            <div id="lista-pokemons"></div>
         </div>
     </div>
     <script src="scripts.js"></script>
