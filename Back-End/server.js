@@ -43,7 +43,7 @@ fastify.post('/pokemons', async (request, reply) => {
     }
 });
 
-// 🧠 Rota para listar todos os Pokémons
+// Rota para listar todos os Pokémons
 fastify.get('/pokemons', async (request, reply) => {
     const { tipo, habitat } = request.query;
 
@@ -75,7 +75,7 @@ fastify.get('/pokemons', async (request, reply) => {
     }
 });
 
-// 🔎 Rota para buscar por ID ou Nome
+// Rota para buscar por ID ou Nome
 fastify.get('/pokemons/:idOuNome', async (request, reply) => {
     const { idOuNome } = request.params;
     const isNumeric = !isNaN(idOuNome);
