@@ -1,0 +1,10 @@
+CREATE DATABASE pokedex;
+
+use pokedex
+
+CREATE TABLE pokemons (
+    id INT PRIMARY KEY NOT NULL,         
+    nome VARCHAR(255) NOT NULL, 
+    tipo VARCHAR(100),          
+    habitat VARCHAR(100)        
+);
