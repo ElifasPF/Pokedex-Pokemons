@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Pokédex</title> 
+    <link rel="stylesheet" href="styles.css"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap">
-    <link rel="shortcut icon" type="image/png" sizes="96x96" href="images/pokebola.png">
+    <link rel="shortcut icon" href="images/pokebola.png" type="image/png" sizes="96x96">
 </head>
 <body>
     <div class="conteiner">
         <div id="msg-inicial">
-            <h1>Pokedex</h1>
+            <h1>Pokédex</h1>
             <p>Digite o nome ou ID do Pokémon cadastrado:</p>
         </div>
+
         <div class="pesquisa">
             <input type="text" id="input-pesquisar" placeholder="Nome ou ID do Pokémon">
+            
             <button id="btn-pesquisar">Pesquisar</button>
+            
             <button id="btn-listar-todos">Listar Todos</button>
+            
             <button onclick="window.location.href='cadastro.html'">Cadastrar Novo</button>
         </div>             
-        <div id="pokedex-app">
-            <div id="mensagem-loading" class="hidden">
-                <p>Carregando...</p>
-            </div>
 
-            <div id="pokemon-info" class="hidden">
-                <img id="pokemon-imagem" src="" alt="Imagem do Pokémon">
-                <h2 id="nome-pokemon"></h2>
-                <p id="pokemon-descricao"></p>
-            </div>
-            <div id="mensagem-erro" class="hidden">
-                <p>404 NOT FOUND - Pokémon não encontrado!</p>
-            </div>
+        <div id="mensagem-loading" class="hidden">
+            <p>Carregando...</p>
         </div>
 
-        <div id="lista-container">
+        <div id="pokemon-info" class="hidden">
+            <img id="pokemon-imagem" src="" alt="Imagem do Pokémon">
+            <h2 id="nome-pokemon"></h2>
+            <p id="pokemon-descricao"></p>
+        </div>
+
+        <div id="mensagem-erro" class="hidden">
+            <p>404 NOT FOUND - Pokémon não encontrado!</p>
+        </div>
+
+        <section id="lista-container" class="hidden">
             <h2>Todos os Pokémons Cadastrados:</h2>
             <div id="lista-pokemons"></div>
-        </div>
+        </section>
     </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
